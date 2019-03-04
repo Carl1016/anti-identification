@@ -1,0 +1,10 @@
+C:\Users\Carl\source\repos\anti-identifier\anti-identifier\bin\Debug\anti-identifier.exe.config
+C:\Users\Carl\source\repos\anti-identifier\anti-identifier\bin\Debug\anti-identifier.exe
+C:\Users\Carl\source\repos\anti-identifier\anti-identifier\bin\Debug\anti-identifier.pdb
+C:\Users\Carl\source\repos\anti-identifier\anti-identifier\obj\Debug\anti-identifier.csprojAssemblyReference.cache
+C:\Users\Carl\source\repos\anti-identifier\anti-identifier\obj\Debug\anti_identifier.Form1.resources
+C:\Users\Carl\source\repos\anti-identifier\anti-identifier\obj\Debug\anti_identifier.Properties.Resources.resources
+C:\Users\Carl\source\repos\anti-identifier\anti-identifier\obj\Debug\anti-identifier.csproj.GenerateResource.cache
+C:\Users\Carl\source\repos\anti-identifier\anti-identifier\obj\Debug\anti-identifier.csproj.CoreCompileInputs.cache
+C:\Users\Carl\source\repos\anti-identifier\anti-identifier\obj\Debug\anti-identifier.exe
+C:\Users\Carl\source\repos\anti-identifier\anti-identifier\obj\Debug\anti-identifier.pdb
