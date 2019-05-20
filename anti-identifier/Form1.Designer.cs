@@ -78,7 +78,7 @@
             // view_button
             // 
             this.view_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.view_button.Location = new System.Drawing.Point(593, 228);
+            this.view_button.Location = new System.Drawing.Point(541, 228);
             this.view_button.Name = "view_button";
             this.view_button.Size = new System.Drawing.Size(109, 38);
             this.view_button.TabIndex = 3;
@@ -89,7 +89,7 @@
             // textBox1
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(593, 171);
+            this.textBox1.Location = new System.Drawing.Point(541, 171);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 29);
             this.textBox1.TabIndex = 4;
@@ -97,7 +97,7 @@
             // Load_button
             // 
             this.Load_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Load_button.Location = new System.Drawing.Point(593, 290);
+            this.Load_button.Location = new System.Drawing.Point(541, 290);
             this.Load_button.Name = "Load_button";
             this.Load_button.Size = new System.Drawing.Size(109, 36);
             this.Load_button.TabIndex = 5;
@@ -108,7 +108,7 @@
             // pen_button
             // 
             this.pen_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pen_button.Location = new System.Drawing.Point(593, 354);
+            this.pen_button.Location = new System.Drawing.Point(541, 354);
             this.pen_button.Name = "pen_button";
             this.pen_button.Size = new System.Drawing.Size(109, 32);
             this.pen_button.TabIndex = 6;
@@ -119,7 +119,7 @@
             // reset_button
             // 
             this.reset_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.reset_button.Location = new System.Drawing.Point(593, 488);
+            this.reset_button.Location = new System.Drawing.Point(541, 488);
             this.reset_button.Name = "reset_button";
             this.reset_button.Size = new System.Drawing.Size(109, 32);
             this.reset_button.TabIndex = 8;
@@ -130,7 +130,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(593, 418);
+            this.button1.Location = new System.Drawing.Point(541, 418);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(109, 35);
             this.button1.TabIndex = 9;
@@ -141,15 +141,16 @@
             // textBox2
             // 
             this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(748, 171);
+            this.textBox2.Location = new System.Drawing.Point(696, 171);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 29);
             this.textBox2.TabIndex = 10;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // chose_destination_button
             // 
             this.chose_destination_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chose_destination_button.Location = new System.Drawing.Point(748, 228);
+            this.chose_destination_button.Location = new System.Drawing.Point(696, 228);
             this.chose_destination_button.Name = "chose_destination_button";
             this.chose_destination_button.Size = new System.Drawing.Size(109, 38);
             this.chose_destination_button.TabIndex = 11;

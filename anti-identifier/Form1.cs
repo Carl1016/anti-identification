@@ -19,14 +19,15 @@ namespace anti_identifier
         
 
         List<String> file_name = new List<string> { };
+        List<String> destination_file_name = new List<string> { };
         String destination = null;
         Bitmap bmp;
         Bitmap buffer;
         Boolean flag = false;
         Graphics g;
         SolidBrush pen;
+        int num = 0;
         int pic_num = 0;
-        Dictionary<string, Bitmap> bmp_dict = new Dictionary<string, Bitmap> { };
         private void view_button_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
@@ -34,12 +35,11 @@ namespace anti_identifier
             {
                 textBox1.Text = dialog.SelectedPath;
             }
-            textBox2.Text = textBox1.Text;
         }
         private void button2_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
-            dialog.SelectedPath = textBox2.Text;
+            dialog.SelectedPath = textBox1.Text;
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 textBox2.Text = dialog.SelectedPath;
@@ -48,6 +48,7 @@ namespace anti_identifier
         }
         private void forward_button_Click(object sender, EventArgs e)
         {
+            drawrectlist.Clear();
             pic_num--;
             if (pic_num<0)
             {
@@ -56,14 +57,14 @@ namespace anti_identifier
             }
             else
             {
-                
-                if (bmp_dict.ContainsKey(file_name[pic_num]))
+                if (destination_file_name.Contains(destination + "\\去識別_" + file_name[pic_num].Remove(0, num + 1)))
                 {
-                    pic.Image = bmp_dict[file_name[pic_num]];
+                    buffer = new Bitmap(destination + "\\去識別_" + file_name[pic_num].Remove(0, num + 1));
+                    bmp = resize(buffer, new Size(pic.Width, pic.Height));
+                    pic.Image = bmp;
                 }
                 else
                 {
-                    
                     buffer = new Bitmap(file_name[pic_num]);
                     bmp = resize(buffer, new Size(pic.Width, pic.Height));
                     pic.Image = bmp;
@@ -71,9 +72,9 @@ namespace anti_identifier
                 
             }
         }
-
         private void next_button_Click(object sender, EventArgs e)
         {
+            drawrectlist.Clear();
             pic_num++;
             if (pic_num >= file_name.Count - 2)
             {
@@ -82,10 +83,12 @@ namespace anti_identifier
             }
             else
             {
-                
-                if (bmp_dict.ContainsKey(file_name[pic_num]))
+
+                if (destination_file_name.Contains(destination + "\\去識別_" + file_name[pic_num].Remove(0, num + 1)))
                 {
-                    pic.Image = bmp_dict[file_name[pic_num]];
+                    buffer = new Bitmap(destination + "\\去識別_" + file_name[pic_num].Remove(0, num + 1));
+                    bmp = resize(buffer, new Size(pic.Width, pic.Height));
+                    pic.Image = bmp;
                 }
                 else
                 {
@@ -96,23 +99,30 @@ namespace anti_identifier
                 
             }
         }
-
         private void Load_button_Click(object sender, EventArgs e)
         {
+            num = textBox1.Text.Length;
             file_name.Clear();
             foreach (string fname in System.IO.Directory.GetFileSystemEntries(textBox1.Text))
             {
                 file_name.Add(fname);
             }
-            buffer = new Bitmap(file_name[0]);
+            destination_file_name.Clear();
+            foreach(string fname in System.IO.Directory.GetFileSystemEntries(textBox2.Text))
+            {
+                destination_file_name.Add(fname);
+            }
+            compare_two_directory(file_name, destination_file_name);
+            buffer = new Bitmap(file_name[pic_num]);
             bmp = resize(buffer, new Size(pic.Width, pic.Height));
             pic.SizeMode = PictureBoxSizeMode.StretchImage;
             pic.Image = bmp;
         }
-
         private void eraser_button_Click(object sender, EventArgs e)
         {
-
+            Bitmap img = new Bitmap(file_name[pic_num]);
+            pic.Image = img;
+            drawrectlist.Clear();
         }
         Boolean pen_flag = false;
         private void pen_button_Click(object sender, EventArgs e)
@@ -138,8 +148,6 @@ namespace anti_identifier
             }
             
         }
-        
-        
         private void pic_MouseMove(object sender, MouseEventArgs e)
         {
             if(flag==true)
@@ -148,21 +156,18 @@ namespace anti_identifier
                 g.FillRectangle(pen,rect);               
             }           
         }
-        
         private void pic_MouseUp(object sender, MouseEventArgs e)
         {
             flag = false;
             drawrectlist.Add(e.Location);
             
         }
-
         private void reset_button_Click(object sender, EventArgs e)
         {
             Bitmap img = new Bitmap(file_name[pic_num]);
             pic.Image = img;
             drawrectlist.Clear();
         }
-        
         private void button1_Click(object sender, EventArgs e)
         {//儲存到目標資料夾
             if(textBox2.Text=="")
@@ -178,18 +183,13 @@ namespace anti_identifier
                         , drawrectlist[i + 1].Y - drawrectlist[i].Y);
                     p.FillRectangle(pen, rec);
                 }
-                //pic.Image = bmp;
-                if(bmp_dict.ContainsKey(file_name[pic_num]))
+
+                bmp.Save(destination + "\\去識別_" + file_name[pic_num].Remove(0, num + 1), System.Drawing.Imaging.ImageFormat.Bmp);
+                destination_file_name.Clear();
+                foreach (string fname in System.IO.Directory.GetFileSystemEntries(textBox2.Text))
                 {
-                    bmp_dict[file_name[pic_num]] = bmp;
+                    destination_file_name.Add(fname);
                 }
-                else
-                {
-                    bmp_dict.Add(file_name[pic_num], bmp);
-                }
-                int num = textBox1.Text.Length;
-                bmp.Save(destination + "\\去識別_" + file_name[pic_num].Remove(0, num + 2), System.Drawing.Imaging.ImageFormat.Bmp);
-                Console.WriteLine(destination + "\\去識別_" + file_name[pic_num].Remove(0, num + 2));
                 drawrectlist.Clear();
             }
 
@@ -202,6 +202,20 @@ namespace anti_identifier
         private void pic_Click(object sender, EventArgs e)
         {
 
+        }
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void compare_two_directory(List<string> file_name,List<string> destination_file_name)
+        {
+            for(int i =0;i<=file_name.Count-1;i++)
+            {
+                if (destination_file_name.Contains(destination + "\\去識別_" + file_name[i].Remove(0, num + 1)))
+                {
+                    pic_num = i+1;
+                }
+            }
         }
     }
 }
