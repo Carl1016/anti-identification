@@ -39,14 +39,20 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.chose_destination_button = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pic)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // pic
             // 
-            this.pic.Location = new System.Drawing.Point(34, 171);
+            this.pic.Location = new System.Drawing.Point(200, 29);
             this.pic.Name = "pic";
-            this.pic.Size = new System.Drawing.Size(532, 519);
+            this.pic.Size = new System.Drawing.Size(540, 519);
             this.pic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pic.TabIndex = 0;
             this.pic.TabStop = false;
@@ -57,7 +63,7 @@
             // 
             // forward_button
             // 
-            this.forward_button.Location = new System.Drawing.Point(34, 112);
+            this.forward_button.Location = new System.Drawing.Point(51, 47);
             this.forward_button.Name = "forward_button";
             this.forward_button.Size = new System.Drawing.Size(84, 33);
             this.forward_button.TabIndex = 1;
@@ -67,7 +73,7 @@
             // 
             // next_button
             // 
-            this.next_button.Location = new System.Drawing.Point(446, 112);
+            this.next_button.Location = new System.Drawing.Point(580, 47);
             this.next_button.Name = "next_button";
             this.next_button.Size = new System.Drawing.Size(84, 33);
             this.next_button.TabIndex = 2;
@@ -78,7 +84,7 @@
             // view_button
             // 
             this.view_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.view_button.Location = new System.Drawing.Point(541, 228);
+            this.view_button.Location = new System.Drawing.Point(233, 114);
             this.view_button.Name = "view_button";
             this.view_button.Size = new System.Drawing.Size(109, 38);
             this.view_button.TabIndex = 3;
@@ -89,7 +95,7 @@
             // textBox1
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(541, 171);
+            this.textBox1.Location = new System.Drawing.Point(233, 47);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 29);
             this.textBox1.TabIndex = 4;
@@ -97,7 +103,7 @@
             // Load_button
             // 
             this.Load_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Load_button.Location = new System.Drawing.Point(541, 290);
+            this.Load_button.Location = new System.Drawing.Point(233, 188);
             this.Load_button.Name = "Load_button";
             this.Load_button.Size = new System.Drawing.Size(109, 36);
             this.Load_button.TabIndex = 5;
@@ -108,7 +114,7 @@
             // pen_button
             // 
             this.pen_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pen_button.Location = new System.Drawing.Point(541, 354);
+            this.pen_button.Location = new System.Drawing.Point(233, 257);
             this.pen_button.Name = "pen_button";
             this.pen_button.Size = new System.Drawing.Size(109, 32);
             this.pen_button.TabIndex = 6;
@@ -119,7 +125,7 @@
             // reset_button
             // 
             this.reset_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.reset_button.Location = new System.Drawing.Point(541, 488);
+            this.reset_button.Location = new System.Drawing.Point(233, 372);
             this.reset_button.Name = "reset_button";
             this.reset_button.Size = new System.Drawing.Size(109, 32);
             this.reset_button.TabIndex = 8;
@@ -130,7 +136,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(541, 418);
+            this.button1.Location = new System.Drawing.Point(233, 316);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(109, 35);
             this.button1.TabIndex = 9;
@@ -141,7 +147,7 @@
             // textBox2
             // 
             this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(696, 171);
+            this.textBox2.Location = new System.Drawing.Point(425, 47);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 29);
             this.textBox2.TabIndex = 10;
@@ -150,7 +156,7 @@
             // chose_destination_button
             // 
             this.chose_destination_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chose_destination_button.Location = new System.Drawing.Point(696, 228);
+            this.chose_destination_button.Location = new System.Drawing.Point(425, 114);
             this.chose_destination_button.Name = "chose_destination_button";
             this.chose_destination_button.Size = new System.Drawing.Size(109, 38);
             this.chose_destination_button.TabIndex = 11;
@@ -158,28 +164,61 @@
             this.chose_destination_button.UseVisualStyleBackColor = true;
             this.chose_destination_button.Click += new System.EventHandler(this.button2_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.forward_button);
+            this.panel1.Controls.Add(this.next_button);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1382, 100);
+            this.panel1.TabIndex = 12;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.reset_button);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.chose_destination_button);
+            this.panel2.Controls.Add(this.view_button);
+            this.panel2.Controls.Add(this.pen_button);
+            this.panel2.Controls.Add(this.Load_button);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(828, 100);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(554, 560);
+            this.panel2.TabIndex = 13;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.pic);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.panel3.Location = new System.Drawing.Point(0, 100);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(828, 560);
+            this.panel3.TabIndex = 14;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(979, 686);
-            this.Controls.Add(this.chose_destination_button);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.reset_button);
-            this.Controls.Add(this.pen_button);
-            this.Controls.Add(this.Load_button);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.view_button);
-            this.Controls.Add(this.next_button);
-            this.Controls.Add(this.forward_button);
-            this.Controls.Add(this.pic);
+            this.ClientSize = new System.Drawing.Size(1254, 686);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pic)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -196,6 +235,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button chose_destination_button;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
     }
 }
 

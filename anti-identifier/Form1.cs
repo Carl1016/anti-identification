@@ -16,8 +16,7 @@ namespace anti_identifier
         {
             InitializeComponent();
         }
-        
-
+       
         List<String> file_name = new List<string> { };
         List<String> destination_file_name = new List<string> { };
         String destination = null;
@@ -76,10 +75,10 @@ namespace anti_identifier
         {
             drawrectlist.Clear();
             pic_num++;
-            if (pic_num >= file_name.Count - 2)
+            if (pic_num > file_name.Count - 1)
             {
                 MessageBox.Show("沒有下一張");
-                pic_num = file_name.Count - 2;
+                pic_num = file_name.Count - 1;
             }
             else
             {
@@ -101,22 +100,50 @@ namespace anti_identifier
         }
         private void Load_button_Click(object sender, EventArgs e)
         {
+            panel3.AutoScroll = true;
             num = textBox1.Text.Length;
             file_name.Clear();
+            pic_num = 0;
+            destination_file_name.Clear();
             foreach (string fname in System.IO.Directory.GetFileSystemEntries(textBox1.Text))
             {
                 file_name.Add(fname);
             }
-            destination_file_name.Clear();
-            foreach(string fname in System.IO.Directory.GetFileSystemEntries(textBox2.Text))
+
+            if(textBox2.Text==string.Empty)
             {
-                destination_file_name.Add(fname);
+                MessageBox.Show("請選擇目的地檔案");
             }
-            compare_two_directory(file_name, destination_file_name);
-            buffer = new Bitmap(file_name[pic_num]);
-            bmp = resize(buffer, new Size(pic.Width, pic.Height));
-            pic.SizeMode = PictureBoxSizeMode.StretchImage;
-            pic.Image = bmp;
+            else
+            {
+                foreach (string fname in System.IO.Directory.GetFileSystemEntries(textBox2.Text))
+                {
+                    destination_file_name.Add(fname);
+                }
+                foreach (string x in file_name)
+                {
+                    Console.WriteLine(x);
+                }
+                compare_two_directory(file_name, destination_file_name);
+                if(pic_num==file_name.Count-1)
+                {
+                    MessageBox.Show("此檔案已完成");
+                    buffer = new Bitmap(destination + "\\去識別_" + file_name[pic_num].Remove(0, num + 1));
+                    bmp = resize(buffer, new Size(pic.Width, pic.Height));
+                    pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pic.Image = bmp;
+                }
+                else
+                {
+                    buffer = new Bitmap(file_name[pic_num]);
+                    bmp = resize(buffer, new Size(pic.Width, pic.Height));
+                    pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pic.Image = bmp;
+                }
+                
+            }
+            
+            
         }
         private void eraser_button_Click(object sender, EventArgs e)
         {
@@ -209,13 +236,27 @@ namespace anti_identifier
         }
         private void compare_two_directory(List<string> file_name,List<string> destination_file_name)
         {
-            for(int i =0;i<=file_name.Count-1;i++)
+            if(destination_file_name.Count<=0)
             {
-                if (destination_file_name.Contains(destination + "\\去識別_" + file_name[i].Remove(0, num + 1)))
-                {
-                    pic_num = i+1;
-                }
+                pic_num = 0;
             }
+            else
+            {
+                for (int i = 0; i <= file_name.Count - 1; i++)
+                {
+                    if (destination_file_name[destination_file_name.Count-1] == destination + "\\去識別_" + file_name[i].Remove(0, num + 1))
+                    {
+                        pic_num = i;
+                        break;
+                    }
+                }
+                if (pic_num != 0 && pic_num< file_name.Count - 1)
+                {
+                    pic_num += 1;
+                }
+
+            }
+            
         }
     }
 }
